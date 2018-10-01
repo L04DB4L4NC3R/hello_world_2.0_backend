@@ -15,7 +15,7 @@ const {
  * @apiParam {string} query the name of the item
  */
 router.post("/query",(req,res,next)=>{
-    existsOrNot("jack")
+    existsOrNot(req.body.name)
     .then(()=>{
         let ins={
             timestamp:req.body.timestamp,
