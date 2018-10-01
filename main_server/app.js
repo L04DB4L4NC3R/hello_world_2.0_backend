@@ -1,19 +1,16 @@
 require("dotenv").config();
 const express = require("express");
 const bp = require("body-parser");
-require("morgan")("dev");
 const mongoose = require("mongoose");
 
 const app = express();
 
 app.use(bp.json()); app.use(bp.urlencoded({extended:false}));
 app.use(express.static('docs'));
-mongoose.connect(process.env.MONGOURL,{useNewUrlParser:true},(err,metadata)=>{
-    if(err)
-        console.log("error");
-    else    
-        console.log("Connected to database")
-});
+app.use(require("morgan")("dev"));
+mongoose.connect(process.env.MONGOURL,{useNewUrlParser:true});
+mongoose.connection.once("open",()=>console.log("Connected to mongodb"))
+.on("error",()=>console.log("error connecting to db"));
 
 
 

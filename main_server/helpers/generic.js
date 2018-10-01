@@ -7,17 +7,22 @@ module.exports.existsOrNot = (name)=>{
             if(!d)
                 reject("user not found")
             let flag=false;
+            
             for(let i of d.items){
-                if(i.obj===data){
+                console.log("fsdjfbjfvcdjhs")
+
+                if(i.obj===name){
                     break;
                     flag=!flag;
                 }
+
             }
+
             if(flag)
                 reject("Item already exists");
             else
                 resolve(true);
             
-        }).catch(reject);
+        }).catch(err=>reject("something happened"));
     });
 }

@@ -25,10 +25,10 @@ router.post("/query",(req,res,next)=>{
             found:false
         };
         users.updateOne({name:req.body.name},{$push:{items:ins}})
-        .then((u)=>res.json(s))
+        .then((u)=>res.json(u))
         .catch(next);
     })
-    .catch(next);
+    .catch(d=>res.send(d));
 });
 
 
@@ -44,7 +44,9 @@ router.post("/query",(req,res,next)=>{
  */
 router.post("/find",(req,res,next)=>{
     users.findOne({name:req.body.name,'items.obj':req.body.obj/*{$elemMatch:req.body.obj}*/})
-    .then((d)=>res.json(d))
+    .then((d)=>{
+       res.json(d.items[0]);
+    })
     .catch(next);
 });
 
