@@ -1,9 +1,8 @@
 const router = require("express").Router();
 const users = require("../schema/schema").users;
-const request = require("request");
 const {
     existsOrNot
-} = require("helpers");
+} = require("../helpers/generic");
 
 
 /**
@@ -19,14 +18,17 @@ router.post("/query",(req,res,next)=>{
     existsOrNot("jack")
     .then(()=>{
         let ins={
-            timestamp = req.body.timestamp,
-            loc:data.body.loc,
+            timestamp:req.body.timestamp,
+            loc:req.body.loc,
             obj:req.body.query,
             found:false
-        }
+        };
         users.updateOne({name:"jack"},{$push:{items:ins}})
         .then((u)=>res.json(s))
         .catch(next);
     })
     .catch(next);
 });
+
+
+module.exports = router;
