@@ -1,7 +1,7 @@
 define({ "api": [
   {
     "type": "post",
-    "url": "/user/query",
+    "url": "/user/find",
     "title": "find object",
     "name": "find_object",
     "group": "user",
@@ -93,7 +93,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "query",
+            "field": "obj",
             "description": "<p>the name of the item</p>"
           },
           {

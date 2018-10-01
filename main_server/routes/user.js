@@ -12,16 +12,17 @@ const {
  * 
  * @apiParam {string} timestamp when was the photo clicked
  * @apiParam {string} loc location of the item
- * @apiParam {string} query the name of the item
+ * @apiParam {string} obj the name of the item
  * @apiParam {string} name the name of the user
  */
 router.post("/query",(req,res,next)=>{
+
     existsOrNot(req.body.name)
     .then(()=>{
         let ins={
             timestamp:req.body.timestamp,
             loc:req.body.loc,
-            obj:req.body.query,
+            obj:req.body.obj,
             found:false
         };
         users.updateOne({name:req.body.name},{$push:{items:ins}})
@@ -35,7 +36,7 @@ router.post("/query",(req,res,next)=>{
 
 
 /**
- * @api {post} /user/query find object
+ * @api {post} /user/find find object
  * @apiName find object
  * @apiGroup user
  * 
