@@ -8,13 +8,13 @@ const app = express();
 
 app.use(bp.json()); app.use(bp.urlencoded({extended:false}));
 app.use(express.static('docs'));
-
 mongoose.connect(process.env.MONGOURL,{useNewUrlParser:true},(err,metadata)=>{
     if(err)
         console.log("error");
     else    
         console.log("Connected to database")
 });
+
 
 
 app.get("/",(req,res)=>{

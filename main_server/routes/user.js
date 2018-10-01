@@ -23,12 +23,37 @@ router.post("/query",(req,res,next)=>{
             obj:req.body.query,
             found:false
         };
-        users.updateOne({name:"jack"},{$push:{items:ins}})
+        users.updateOne({name:req.body.name},{$push:{items:ins}})
         .then((u)=>res.json(s))
         .catch(next);
     })
     .catch(next);
 });
 
+
+
+/**
+ * @api {post} /user/add save user
+ * @apiName save user
+ * @apiGroup user
+ * 
+ * @apiParam {string} name name of the user
+ * @apiParam {Number} age age of the user
+ * @apiParam {string} gender gender of the user
+ */
+router.post("/add",(req,res,next)=>{
+    users.findOne({name:req.body.name})
+    .then((d)=>{
+        if(!d){
+            users.create({
+                name:req.body.name,
+                age:req.body.age,
+                gender:req.body.gender
+            }).then((u)=>res.json(u))
+            .catch(next);
+        } else  
+            res.json({message:"User already exists"});
+    });
+});
 
 module.exports = router;

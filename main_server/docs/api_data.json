@@ -35,5 +35,42 @@
     "version": "0.0.0",
     "filename": "routes/user.js",
     "groupTitle": "user"
+  },
+  {
+    "type": "post",
+    "url": "/user/add",
+    "title": "save user",
+    "name": "save_user",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "age",
+            "description": "<p>age of the user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender of the user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "user"
   }
 ]
