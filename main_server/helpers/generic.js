@@ -14,9 +14,9 @@ module.exports.existsOrNot = (name)=>{
                 }
             }
             if(flag)
-                resolve(flag);
+                reject("Item already exists");
             else
-                reject("Item not found");
+                resolve(true);
             
         }).catch(reject);
     });

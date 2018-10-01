@@ -13,6 +13,7 @@ const {
  * @apiParam {string} timestamp when was the photo clicked
  * @apiParam {string} loc location of the item
  * @apiParam {string} query the name of the item
+ * @apiParam {string} name the name of the user
  */
 router.post("/query",(req,res,next)=>{
     existsOrNot(req.body.name)
