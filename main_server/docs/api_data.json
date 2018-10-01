@@ -62,7 +62,7 @@
     "url": "/pharma/add",
     "title": "add a pharmaceutical shop",
     "name": "add_pharmaceutical_shop",
-    "group": "pharmaceutical_shop",
+    "group": "pharmacist",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -106,7 +106,7 @@
     },
     "version": "0.0.0",
     "filename": "routes/pharma.js",
-    "groupTitle": "pharmaceutical_shop"
+    "groupTitle": "pharmacist"
   },
   {
     "type": "post",
