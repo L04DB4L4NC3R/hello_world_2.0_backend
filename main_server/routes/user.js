@@ -53,6 +53,7 @@ router.post("/query",(req,res,next)=>{
 }   
  */
 router.post("/find",(req,res,next)=>{
+    console.log(req.body)
     users.findOne({name:req.body.name,'items.obj':req.body.obj/*{$elemMatch:req.body.obj}*/})
     .then((d)=>{
         if(!d)
