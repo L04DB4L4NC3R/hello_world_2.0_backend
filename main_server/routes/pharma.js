@@ -5,7 +5,7 @@ const pharmas = require("../schema/schema").pharmas;
 /**
  * @api {post} /pharma/add add a pharmaceutical shop
  * @apiName add pharmaceutical shop
- * @apiGroup pharmaceutical shop
+ * @apiGroup pharmacist
  * @apiParam {string} name name of the pharmaceutical shop
  * @apiParam {string} contact contact of the pharmaceutical shop
  * @apiParam {string} availability availability of the pharmaceutical shop
