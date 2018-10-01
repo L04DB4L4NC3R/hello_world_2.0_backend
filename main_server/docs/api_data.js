@@ -1,6 +1,115 @@
 define({ "api": [
   {
     "type": "post",
+    "url": "/doctor/add",
+    "title": "add a doctor",
+    "name": "add_doctor",
+    "group": "doctor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the doctor</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "specialization",
+            "description": "<p>specialization of the doctor</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "contact",
+            "description": "<p>contact of the doctor</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the doctor</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "loc",
+            "description": "<p>location of the doctor</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "response",
+          "content": "{\n    \"rating\": 0.5,\n    \"_id\": \"5bb29fcdb8c82c20538ca188\",\n    \"name\": \"doccroc\",\n    \"specialization\": \"gynaecologist\",\n    \"contact\": \"9923992399\",\n    \"availability\": \"9 to 10\",\n    \"loc\": \"yo mama's house\",\n    \"__v\": 0\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/doctor.js",
+    "groupTitle": "doctor"
+  },
+  {
+    "type": "post",
+    "url": "/pharma/add",
+    "title": "add a pharmaceutical shop",
+    "name": "add_pharmaceutical_shop",
+    "group": "pharmaceutical_shop",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the pharmaceutical shop</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "contact",
+            "description": "<p>contact of the pharmaceutical shop</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the pharmaceutical shop</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "loc",
+            "description": "<p>location of the pharmaceutical shop</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "response",
+          "content": "{\n    \"_id\": \"5bb2a4566446f82217ab15c6\",\n    \"name\": \"p1\",\n    \"contact\": \"9923992399\",\n    \"availability\": \"9 to 10\",\n    \"loc\": \"yo mama's house\",\n    \"__v\": 0\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/pharma.js",
+    "groupTitle": "pharmaceutical_shop"
+  },
+  {
+    "type": "post",
     "url": "/user/find",
     "title": "find object",
     "name": "find_object",

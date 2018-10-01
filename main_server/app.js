@@ -24,6 +24,8 @@ app.get("/docs",(req,res)=>{
 
 
 app.use("/user",require("./routes/user"));
+app.use("/doctor",require("./routes/doctor"));
+app.use("/pharma",require("./routes/pharma"));
 
 app.use((err,req,res,next)=>{
     res.json({message:"Error occurred",err});

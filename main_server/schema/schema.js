@@ -27,7 +27,7 @@ module.exports.doctors = mongoose.model("doctor",new mongoose.Schema({
     },
     availability:String,
     loc:String
-}));
+}));    
 
 
 
