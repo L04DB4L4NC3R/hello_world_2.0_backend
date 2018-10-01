@@ -88,7 +88,14 @@
             "description": "<p>prescription of the user</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "response",
+          "content": "{\n    \"complimentary_users\": [],\n    \"_id\": \"5bb28943956e1d16a1372c65\",\n    \"name\": \"angad\",\n    \"age\": 19,\n    \"gender\": \"M\",\n    \"items\": [\n        {\n            \"_id\": \"5bb2919b0f87c71a01f96db1\",\n            \"timestamp\": \"sfdjnfs\",\n            \"loc\": \"sadsjdjbsad\",\n            \"obj\": \"bag\",\n            \"found\": false\n        }\n    ],\n    \"prescriptions\": [\n        {\n            \"_id\": \"5bb2af7c73810426177ba4e5\",\n            \"doctor\": \"doccroc\",\n            \"presc\": \"paracetamol\"\n        }\n    ],\n    \"__v\": 1\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "routes/doctor.js",
@@ -322,6 +329,57 @@
         {
           "title": "response",
           "content": "{\n    \"complimentary_users\": [],\n    \"_id\": \"5bb28943956e1d16a1372c65\",\n    \"name\": \"angad\",\n    \"age\": 19,\n    \"gender\": \"M\",\n    \"items\": [],\n    \"__v\": 0\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "user"
+  },
+  {
+    "type": "post",
+    "url": "/user/sendPharma",
+    "title": "send order to pharmacist",
+    "name": "send_order_to_pharmacist",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "user",
+            "description": "<p>user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "doctor",
+            "description": "<p>doctor</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "presc",
+            "description": "<p>prescription data</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "pharma",
+            "description": "<p>pharmacist name</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "response",
+          "content": "{\n    \"orders\": [\n        {\n            \"_id\": \"5bb2b383691e3227a80358e9\",\n            \"user\": \"angad\",\n            \"doctor\": \"doccroc\",\n            \"presc\": \"paracetamol\"\n        }\n    ],\n    \"_id\": \"5bb2a4566446f82217ab15c6\",\n    \"name\": \"p1\",\n    \"contact\": \"9923992399\",\n    \"availability\": \"9 to 10\",\n    \"loc\": \"yo mama's house\",\n    \"__v\": 1\n}",
           "type": "json"
         }
       ]

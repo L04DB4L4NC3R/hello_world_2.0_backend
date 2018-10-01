@@ -1,5 +1,8 @@
 const router = require("express").Router();
-const users = require("../schema/schema").users;
+const {
+    users,
+    pharmas
+} = require("../schema/schema");
 const {
     existsOrNot
 } = require("../helpers/generic");
@@ -125,4 +128,46 @@ router.post("/found",(req,res,next)=>{
     }).catch(()=>next(new Error("Error finding data")));
 });
 
+
+
+/**
+ * @api {post} /user/sendPharma send order to pharmacist
+ * @apiName send order to pharmacist
+ * @apiGroup user
+ * @apiParam {string} user user
+ * @apiParam {string} doctor doctor
+ * @apiParam {string} presc prescription data
+ * @apiParam {string} pharma pharmacist name
+ * 
+ * @apiParamExample {json} response
+ * {
+    "orders": [
+        {
+            "_id": "5bb2b383691e3227a80358e9",
+            "user": "angad",
+            "doctor": "doccroc",
+            "presc": "paracetamol"
+        }
+    ],
+    "_id": "5bb2a4566446f82217ab15c6",
+    "name": "p1",
+    "contact": "9923992399",
+    "availability": "9 to 10",
+    "loc": "yo mama's house",
+    "__v": 1
+}
+ */
+router.post("/sendPharma",(req,res,next)=>{
+    pharmas.findOne({name:req.body.pharma})
+    .then((p)=>{
+        if(!p)
+            next(new Error("Pharma not found"));
+        p.orders.push({
+            user:req.body.user,
+            doctor:req.body.doctor,
+            presc:req.body.presc
+        });
+        p.save().then(pp=>res.json(pp)).catch(next);
+    });
+});
 module.exports = router;

@@ -42,6 +42,14 @@ module.exports.pharmas = mongoose.model("pharma",new mongoose.Schema({
     name:String,
     loc:String,
     contact:String,
-    availability:String
+    availability:String,
+    orders:{
+        type:[{
+            user:String,
+            doctor:String,
+            presc:String
+        }],
+        default:[]
+    }
 }));
 

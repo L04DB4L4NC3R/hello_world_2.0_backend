@@ -80,6 +80,32 @@ router.post("/find",(req,res,next)=>{
  * @apiParam {string} user name of the user
  * @apiParam {string} presc prescription of the user
  * 
+ * @apiParamExample {json} response
+ * {
+    "complimentary_users": [],
+    "_id": "5bb28943956e1d16a1372c65",
+    "name": "angad",
+    "age": 19,
+    "gender": "M",
+    "items": [
+        {
+            "_id": "5bb2919b0f87c71a01f96db1",
+            "timestamp": "sfdjnfs",
+            "loc": "sadsjdjbsad",
+            "obj": "bag",
+            "found": false
+        }
+    ],
+    "prescriptions": [
+        {
+            "_id": "5bb2af7c73810426177ba4e5",
+            "doctor": "doccroc",
+            "presc": "paracetamol"
+        }
+    ],
+    "__v": 1
+}
+ * 
  */
 router.post("/presc",(req,res,next)=>{
     users.findOne({name:req.body.name})
