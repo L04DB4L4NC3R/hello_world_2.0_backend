@@ -32,6 +32,23 @@ router.post("/query",(req,res,next)=>{
 
 
 
+
+/**
+ * @api {post} /user/query find object
+ * @apiName find object
+ * @apiGroup user
+ * 
+ * @apiParam {string} name name of the user
+ * @apiParam {string} obj object you are looking for
+ */
+router.post("/find",(req,res,next)=>{
+    users.findOne({name:req.body.name,'items.obj':req.body.obj/*{$elemMatch:req.body.obj}*/})
+    .then((d)=>res.json(d))
+    .catch(next);
+});
+
+
+
 /**
  * @api {post} /user/add save user
  * @apiName save user

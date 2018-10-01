@@ -2,6 +2,36 @@
   {
     "type": "post",
     "url": "/user/query",
+    "title": "find object",
+    "name": "find_object",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "obj",
+            "description": "<p>object you are looking for</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "user"
+  },
+  {
+    "type": "post",
+    "url": "/user/query",
     "title": "save query",
     "name": "save_query",
     "group": "user",
@@ -54,7 +84,7 @@
           },
           {
             "group": "Parameter",
-            "type": "string",
+            "type": "Number",
             "optional": false,
             "field": "age",
             "description": "<p>age of the user</p>"
