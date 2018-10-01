@@ -13,6 +13,13 @@ module.exports.users = mongoose.model("user",new mongoose.Schema({
             found:Boolean
         }],
         default:[]
+    },
+    prescriptions:{
+        type:[{
+            doctor:String,
+            presc:String
+        }],
+        default:[]
     }
 }));
 

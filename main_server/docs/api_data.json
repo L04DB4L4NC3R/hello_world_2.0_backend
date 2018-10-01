@@ -59,6 +59,43 @@
   },
   {
     "type": "post",
+    "url": "/doctor/presc",
+    "title": "send a prescription",
+    "name": "send_a_prescription",
+    "group": "doctor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "doctor",
+            "description": "<p>name of the doctor</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "user",
+            "description": "<p>name of the user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "presc",
+            "description": "<p>prescription of the user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/doctor.js",
+    "groupTitle": "doctor"
+  },
+  {
+    "type": "post",
     "url": "/pharma/add",
     "title": "add a pharmaceutical shop",
     "name": "add_pharmaceutical_shop",
@@ -107,6 +144,36 @@
     "version": "0.0.0",
     "filename": "routes/pharma.js",
     "groupTitle": "pharmacist"
+  },
+  {
+    "type": "post",
+    "url": "/doctor/find",
+    "title": "find doctors",
+    "name": "find_doctors",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "spec",
+            "description": "<p>specialization of the doctor</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "response",
+          "content": "[\n    {\n        \"rating\": 0.5,\n        \"_id\": \"5bb29fcdb8c82c20538ca188\",\n        \"name\": \"doccroc\",\n        \"specialization\": \"gynaecologist\",\n        \"contact\": \"9923992399\",\n        \"availability\": \"9 to 10\",\n        \"loc\": \"yo mama's house\",\n        \"__v\": 0\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/doctor.js",
+    "groupTitle": "user"
   },
   {
     "type": "post",

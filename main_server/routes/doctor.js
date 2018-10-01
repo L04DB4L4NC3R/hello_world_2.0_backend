@@ -1,5 +1,8 @@
 const router = require("express").Router();
-const doctors = require("../schema/schema").doctors;
+const {
+    doctors,
+    users
+} = require("../schema/schema");
 
 
 /**
@@ -36,4 +39,58 @@ router.post("/add",(req,res,next)=>{
     }).catch(next);
 });
 
+
+
+/**
+ * @api {post} /doctor/find find doctors
+ * @apiName find doctors
+ * @apiGroup user
+ * @apiParam {string} spec specialization of the doctor
+ * 
+ * @apiParamExample {json} response
+ * [
+    {
+        "rating": 0.5,
+        "_id": "5bb29fcdb8c82c20538ca188",
+        "name": "doccroc",
+        "specialization": "gynaecologist",
+        "contact": "9923992399",
+        "availability": "9 to 10",
+        "loc": "yo mama's house",
+        "__v": 0
+    }
+]
+ */
+router.post("/find",(req,res,next)=>{
+    doctors.find({specialization:req.body.spec})
+    .sort('rating')
+    .exec((err,data)=>{
+        if(err)
+            next(err);
+        res.json(data);
+    });
+});
+
+
+/**
+ * @api {post} /doctor/presc send a prescription
+ * @apiName send a prescription
+ * @apiGroup doctor
+ * @apiParam {string} doctor name of the doctor
+ * @apiParam {string} user name of the user
+ * @apiParam {string} presc prescription of the user
+ * 
+ */
+router.post("/presc",(req,res,next)=>{
+    users.findOne({name:req.body.name})
+    .then((u)=>{
+        if(!u)
+            next(new Error("User not found"));
+        u.prescriptions.push({
+            doctor:req.body.doctor,
+            presc:req.body.presc
+        });
+        u.save().then(d=>res.json(d)).catch(next);
+    }).catch(next);
+});
 module.exports = router;
