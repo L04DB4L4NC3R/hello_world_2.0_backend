@@ -20,4 +20,8 @@ app.get("/",(req,res)=>{
     res.json({message:"hi"});
 });
 
+app.use((err,req,res,next)=>{
+    res.json({message:"Error occurred",err});
+});
+
 const server = app.listen(process.env.PORT || 3000,()=>console.log(`Listening in port ${server.address().port}`));
