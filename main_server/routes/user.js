@@ -131,7 +131,7 @@ router.post("/found",(req,res,next)=>{
 
 
 /**
- * @api {post} /user/sendPharma send order to pharmacist
+ * @api {post} /user/orderPharma send order to pharmacist
  * @apiName send order to pharmacist
  * @apiGroup user
  * @apiParam {string} user user
@@ -157,7 +157,7 @@ router.post("/found",(req,res,next)=>{
     "__v": 1
 }
  */
-router.post("/sendPharma",(req,res,next)=>{
+router.post("/orderPharma",(req,res,next)=>{
     pharmas.findOne({name:req.body.pharma})
     .then((p)=>{
         if(!p)
