@@ -19,7 +19,7 @@
   * @api {post} /profile to upload and objectify file
   * @apiName to upload and objectify photo
   * @apiGroup user
-  * @apiParam {string} file base64 encoded file
+  * @apiParam {string} photo base64 encoded file
   * @apiParam {string} loc location of the object
   * @apiParam {string} timestamp timestamp of the object
   * @apiParam {string} name name of the user
