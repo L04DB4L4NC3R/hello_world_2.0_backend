@@ -9,3 +9,11 @@ services:
     volumes:
       - ./main_server:/usr/src/app
       - /usr/src/app/node_modules
+  main_node:
+    container_name: service_node
+    image: angadsharma1016/hw20service:latest
+    ports:
+      - 8080:3000
+    volumes:
+      - ./main_server:/usr/src/app
+      - /usr/src/app/node_modules
