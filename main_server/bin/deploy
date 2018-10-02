@@ -1,8 +1,0 @@
-#!/bin/bash
-
-ssh root@159.89.173.191
-cd hello_world_2.0_backend
-git pull origin master
-cd main_server
-pm2 restart app.js
-exit
