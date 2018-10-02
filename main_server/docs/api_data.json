@@ -154,6 +154,36 @@
   },
   {
     "type": "post",
+    "url": "/user/deleteItem",
+    "title": "delete an item",
+    "name": "delete_an_item",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "obj",
+            "description": "<p>object to delete</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/user.js",
+    "groupTitle": "user"
+  },
+  {
+    "type": "post",
     "url": "/doctor/find",
     "title": "find doctors",
     "name": "find_doctors",

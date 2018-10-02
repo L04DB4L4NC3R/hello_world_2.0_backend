@@ -170,4 +170,25 @@ router.post("/orderPharma",(req,res,next)=>{
         p.save().then(pp=>res.json(pp)).catch(next);
     });
 });
+
+
+/**
+ * @api {post} /user/deleteItem delete an item
+ * @apiName delete an item
+ * @apiGroup user
+ * @apiParam {string} name name of the user
+ * @apiParam {string} obj object to delete
+ */
+router.post("/deleteItem",(req,res)=>{
+    users.findOne({name:req.body.name})
+    .then((u)=>{
+        if(!u)
+            next(new Error("No user found"));
+        users.updateOne({name:req.body.name},{$pull:{
+            items:{obj:req.body.obj}
+        }}).then(t=>res.json(t))
+        .catch(next);
+    });
+});
+
 module.exports = router;
