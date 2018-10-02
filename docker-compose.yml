@@ -2,16 +2,22 @@ version: "3.1"
 
 services:
   main_node:
-    container_name: main_node
+    build:
+      context: ./main_server
     image: angadsharma1016/hw20:latest
+    container_name: main_node
+    
     ports:
       - 3000:3000
     volumes:
       - ./main_server:/usr/src/app
       - /usr/src/app/node_modules
-  main_node:
-    container_name: service_node
+  service_node:
+    build:
+      context: ./microservice
     image: angadsharma1016/hw20service:latest
+
+    container_name: service_node
     ports:
       - 8080:3000
     volumes:
