@@ -1,6 +1,50 @@
 [
   {
     "type": "post",
+    "url": "/profile",
+    "title": "to upload and objectify file",
+    "name": "to_upload_and_objectify_photo",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "file",
+            "description": "<p>base64 encoded file</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "loc",
+            "description": "<p>location of the object</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "timestamp",
+            "description": "<p>timestamp of the object</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the user</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "routes/documents.js",
+    "group": "_home_angad_Desktop_hello_world_2_0_main_server_routes_documents_js",
+    "groupTitle": "_home_angad_Desktop_hello_world_2_0_main_server_routes_documents_js"
+  },
+  {
+    "type": "post",
     "url": "/doctor/add",
     "title": "add a doctor",
     "name": "add_doctor",
@@ -339,7 +383,7 @@
   },
   {
     "type": "post",
-    "url": "/user/sendPharma",
+    "url": "/user/orderPharma",
     "title": "send order to pharmacist",
     "name": "send_order_to_pharmacist",
     "group": "user",
@@ -386,6 +430,36 @@
     },
     "version": "0.0.0",
     "filename": "routes/user.js",
+    "groupTitle": "user"
+  },
+  {
+    "type": "post",
+    "url": "/query",
+    "title": "takes query and convert to minimal token",
+    "name": "takes_query_and_convert_to_minimal_token",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "obj",
+            "description": "<p>the sententual query</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "response",
+          "content": "{\n    \"_id\": \"5bb2852280452113f2c816f2\",\n    \"timestamp\": \"12/12/12 8:00 pm\",\n    \"loc\": \"{lat:12.12334,lng:13.5678}\",\n    \"obj\": \"watch\",\n    \"found\": false\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/documents.js",
     "groupTitle": "user"
   }
 ]
