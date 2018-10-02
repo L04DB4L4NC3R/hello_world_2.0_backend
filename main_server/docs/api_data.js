@@ -1,50 +1,6 @@
 define({ "api": [
   {
     "type": "post",
-    "url": "/profile",
-    "title": "to upload and objectify file",
-    "name": "to_upload_and_objectify_photo",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "file",
-            "description": "<p>base64 encoded file</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "loc",
-            "description": "<p>location of the object</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "timestamp",
-            "description": "<p>timestamp of the object</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "name",
-            "description": "<p>name of the user</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "routes/documents.js",
-    "group": "_home_angad_Desktop_hello_world_2_0_main_server_routes_documents_js",
-    "groupTitle": "_home_angad_Desktop_hello_world_2_0_main_server_routes_documents_js"
-  },
-  {
-    "type": "post",
     "url": "/doctor/add",
     "title": "add a doctor",
     "name": "add_doctor",
@@ -457,6 +413,50 @@ define({ "api": [
           "type": "json"
         }
       ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/documents.js",
+    "groupTitle": "user"
+  },
+  {
+    "type": "post",
+    "url": "/profile",
+    "title": "to upload and objectify file",
+    "name": "to_upload_and_objectify_photo",
+    "group": "user",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "file",
+            "description": "<p>base64 encoded file</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "loc",
+            "description": "<p>location of the object</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "timestamp",
+            "description": "<p>timestamp of the object</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the user</p>"
+          }
+        ]
+      }
     },
     "version": "0.0.0",
     "filename": "routes/documents.js",
