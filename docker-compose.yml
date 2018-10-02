@@ -1,0 +1,11 @@
+version: "3.1"
+
+services:
+  main_node:
+    container_name: main_node
+    image: angadsharma1016/hw20:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - ./main_server:/usr/src/app
+      - /usr/src/app/node_modules
