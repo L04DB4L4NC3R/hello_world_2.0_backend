@@ -461,7 +461,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "file",
+            "field": "photo",
             "description": "<p>base64 encoded file</p>"
           },
           {
