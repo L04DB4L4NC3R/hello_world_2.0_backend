@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package.json package.json
 
-RUN npm install && npm install -g dotenv
+RUN npm install && npm install --dotenv-extended
 
 COPY . . 
 
