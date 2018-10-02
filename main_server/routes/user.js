@@ -19,7 +19,7 @@ const {
  * @apiParam {string} name the name of the user
  */
 router.post("/query",(req,res,next)=>{
-
+    console.log(req.body)
     existsOrNot(req.body.name)
     .then(()=>{
         let ins={
